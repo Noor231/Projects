@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="header.css" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="form.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+<body>
+
+
+  <header id="header">
+
+    <nav id="navbar">
+
+      <div class="logoo">
+        <img class="logo" src="img/logo.png" alt="logo">
+    </div>
+      <ul>
+        <li><a href="index.html"> Home </a>
+        <li>
+        <li><a href="Statistics.html"> statistics </a>
+        <li>
+        <li><a href="Media.html"> Media </a>
+        <li>
+      </ul>
+    </nav>
+
+
+    <div id="responsive-header">
+
+      <div id="menu-button">
+        <p> Menus ☰ </p>
+      </div>
+
+      <ul id="responsive-navbar">
+        <li id="home-menu"><a href="index.html"> Home </a>
+        <li>
+        <li id="projects-menu"><a href="Media.html"> Media </a>
+        <li>
+        <li id="blogs-menu"><a href="Statistics.html"> statistics </a>
+        <li>
+
+      </ul>
+    </div>
+
+  </header>
+
+
+  <!-- Projects Section -->
+
+  <div id="projects-container">
+    <div id="projects">
+
+      <div class="bgdiv">
+
+      <div id="title-and-separator">
+        <h1> Stats & Charts</h1>
+     
+      </div>
+
+    </div>
+
+      <div class="formr">
+
+
+        <h2>Register a Zombie</h2>
+        <hr>
+        <form id="zombie-form">
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name" required><br><br>
+          <label for="height">Height:</label><br>
+          <input type="number" id="height" name="height" required><br><br>
+          <label for="weight">Weight:</label><br>
+          <input type="number" id="weight" name="weight"><br><br>
+          <label for="kills">Kills:</label><br>
+          <input type="number" id="kills" name="kills" required><br><br>
+          <input type="submit" value="Submit" id="bsubmit">
+        </form>
+
+
+      </div>
+
+
+      <div class="formr">
+
+        <h2>List</h2>
+        <hr>
+        <div id="top-10-container">
+          <h2>Top 10 Zombies</h2>
+          <ol id="top-10-list"></ol>
+
+        </div>
+      </div>
+      <canvas id="myChart"></canvas>
+
+      <div id="heightChart"></div>
+
+
+
+
+    </div>
+
+      <script>
+      // initialize an empty array to store zombie objects
+let zombies = [];
+
+// add event listener for form submission
+document.getElementById("zombie-form").addEventListener("submit", function (event) {
+  // prevent form from submitting and refreshing the page
+  event.preventDefault();
+
+  // get the input values from the form fields
+  let name = document.getElementById("name").value;
+  let height = document.getElementById("height").value;
+  let weight = document.getElementById("weight").value;
+  let kills = document.getElementById("kills").value;
+
+  // check if the zombies array has less than 10 entries
+  if (zombies.length < 10) {
+    // add the zombie object to the zombies array
+    zombies.push({ name, height, weight, kills });
+    // sort the zombies array in descending order by kills
+    zombies.sort(function (a, b) {
+      return b.kills - a.kills;
+    });
+  } else {
+    // if the zombies array already has 10 entries, remove the last entry
+    // and add the new zombie object to the end of the array
+    zombies.pop();
+    zombies.push({ name, height, weight, kills });
+    // sort the zombies array in descending order by kills
+    zombies.sort(function (a, b) {
+      return b.kills - a.kills;
+    });
+  }
+
+  // display the top 10 zombies in the list
+  displayTop10Zombies();
+
+  // display the chart with the zombie data
+  displayChart();
+ 
+});
+
+// function to display the top 10 zombies in the list
+function displayTop10Zombies() {
+  let top10List = document.getElementById("top-10-list");
+  top10List.innerHTML = "";
+  for (let i = 0; i < zombies.length; i++) {
+    let zombie = zombies[i];
+    let li = document.createElement("li");
+    li.textContent = zombie.name + " - " + zombie.kills + " kills";
+    top10List.appendChild(li);
+  }
+}
+
+function displayChart() {
+  let chartData = [];
+  for (let i = 0; i < zombies.length; i++) {
+    let zombie = zombies[i];
+    chartData.push({ label: zombie.name, value: zombie.kills });
+  }
+
+  // clear the chart canvas
+  let chartCanvas = document.getElementById("myChart");
+  chartCanvas.getContext("2d").clearRect(0, 0, chartCanvas.width, chartCanvas.height);
+
+  // update the chart data
+  let chart = Chart.getChart("myChart");
+  if (chart) {
+    chart.data.labels = chartData.map((data) => data.label);
+    chart.data.datasets[0].data = chartData.map((data) => data.value);
+    chart.update();
+  } else {
+    // create a new Chart.js chart instance with the chart data and display it in the DOM
+    chart = new Chart(chartCanvas, {
+      type: "pie",
+      data: {
+        labels: chartData.map((data) => data.label),
+        datasets: [
+          {
+            data: chartData.map((data) => data.value),
+            backgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+              "#FFCE56",
+              "#8BC34A",
+              "#FF9800",
+              "#9C27B0",
+              "#795548",
+              "#00BCD4",
+              "#CDDC39",
+              "#607D8B"
+            ]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          position: "right"
+        },
+        animation: {
+          animateScale: true,
+          animateRotate: true
+        }
+      }
+    });
+
+
+
+  }
+}
+
+function displayHeightChart() {
+  let chartData = [];
+  let heights = [];
+  
+  // collect heights of zombies
+  for (let i = 0; i < zombies.length; i++) {
+    let zombie = zombies[i];
+    if (zombie.height) {
+      heights.push(parseFloat(zombie.height));
+    }
+  }
+
+  // calculate the maximum and minimum heights
+  let max = Math.max(...heights);
+  let min = Math.min(...heights);
+
+  // calculate the range and number of bins
+  let range = max - min;
+  let numBins = Math.ceil(Math.sqrt(heights.length));
+  let binSize = range / numBins;
+
+  // create bins and count the number of zombies in each bin
+  let bins = new Array(numBins).fill(0);
+  for (let i = 0; i < heights.length; i++) {
+    let binIndex = Math.floor((heights[i] - min) / binSize);
+    if (binIndex < 0) {
+      binIndex = 0;
+    } else if (binIndex >= numBins) {
+      binIndex = numBins - 1;
+    }
+    bins[binIndex]++;
+  }
+
+  // create chart data from the bins
+  for (let i = 0; i < numBins; i++) {
+    let binLabel = `${(min + i * binSize).toFixed(2)} - ${(min + (i + 1) * binSize).toFixed(2)}`;
+    chartData.push({ label: binLabel, value: bins[i] });
+  }
+
+  // clear the height chart container
+  let heightChartContainer = document.getElementById("heightChart");
+  heightChartContainer.innerHTML = "";
+
+  // create a new canvas element for the chart
+  let chartCanvas = document.createElement("canvas");
+  chartCanvas.id = "heightChartCanvas";
+  heightChartContainer.appendChild(chartCanvas);
+
+  // create a new Chart.js chart instance with the chart data and display it in the DOM
+  let chart = new Chart(chartCanvas, {
+    type: "bar",
+    data: {
+      labels: chartData.map((data) => data.label),
+      datasets: [
+        {
+          data: chartData.map((data) => data.value),
+          backgroundColor: "#36A2EB"
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+              precision: 0
+            },
+            scaleLabel: {
+              display: true,
+              labelString: "Number of Zombies"
+            }
+          }
+        ],
+        xAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: "Height (in meters)"
+            }
+          }
+        ]
+      }
+    }
+  });
+}
+
+// update the height chart whenever a new zombie is added
+document.getElementById("zombie-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  displayHeightChart();
+});
+
+
+      </script>
+
+
+
+    
+
+    <footer>
+      <p> Made by Noor Singh </p>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript/jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="headere.js"></script>
+
+</body>
+
+</html>

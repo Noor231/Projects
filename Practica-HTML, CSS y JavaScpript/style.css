@@ -1,0 +1,177 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+
+	background-color: #1a1919;
+	text-align: center;
+
+}
+
+
+.banner-area {
+	width: 100%;
+	height: 500px;
+	position: fixed;
+	top: 60px;
+	background-image: url(img/backk.gif);
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+.banner-area h2 {
+	padding-top: 8%;
+	font-size: 70px;
+	font-family: poppins;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.banner-area:hover{
+    filter: drop-shadow(16px 16px 20px red) invert(75%);
+
+}
+.banner-area{
+transition: 1s;}
+
+.hcards{
+	width: 100%;
+	top: 450px;
+	position: relative;
+
+	height: 650px;
+	background-color: aliceblue;
+
+
+
+	border-top: 30px solid#1a1919;
+	border-right: 30px solid#1a1919;
+	border-left: 30px solid#1a1919;
+
+}
+
+.headingg{width: 100%; height: 100px;  display: flex; text-align: center; justify-content: center;font-family: poppins;text-transform: uppercase;}
+
+.fcard{width: 100%;  height: auto; display: flex;padding: auto;}
+
+.cocard{width: 25%;  margin: auto; height: 400px; justify-content: center; text-align: center;}
+
+@media only screen and (max-width: 900px) {
+
+	.cocard{width: 100%; display: flex; }
+
+	.fcard{display: block;}
+	.hcards{height: auto;}
+	
+
+  }
+
+
+.card{
+    display: flex;
+	font-family: poppins;
+
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+    padding-bottom: 15px;
+    background-color: rgb(139, 139, 139);
+    margin: auto;
+}
+
+.card img{
+	width: 25%;
+  
+    height: 25%;
+    border-radius: 50%;
+    background-image: linear-gradient(60deg, #ffffff, #000000);
+    padding: 5px;
+    margin-top: -45px;
+}
+
+.card h2{
+    margin: 10px 0;
+}
+
+.cont{
+    width: 80%;
+    height: 0;
+    display: flex;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.6s ease;
+}
+
+.card .cont .link i{
+    font-size: 25px;
+    color: rgb(82, 82, 82);
+    transition: all 0.2s ease;
+}
+
+.card .cont .link i:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.card:hover > .cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 150px;
+}
+
+.card:hover > .link{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.des{font-size: x-large;}
+
+
+
+
+.hcards{
+	
+	margin:0;
+	padding:0;
+	font-family:"arial",heletica,sans-serif;
+	font-size:12px;
+    background: #657681 url(img/backkk.jpg) repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+ 
+}
+ 
+@-webkit-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-moz-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-ms-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-o-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
