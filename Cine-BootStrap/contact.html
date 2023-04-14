@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cine</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="Practica8-1.html">CINE</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="Practica8-1.html">Home</a>
+					</li>
+								<li class="nav-item dropdown">
+			<li class="nav-item dropdown">
+		 		 <div class="dropdown">
+  				<button class="dropbtn">Movies↓</button>
+  				<div class="dropdown-content">
+   				 <a href="https://ca.wikipedia.org/wiki/Guardians_of_the_Galaxy_Vol._2">Guardians..</a>
+   				 <a href="https://es.wikipedia.org/wiki/Venom:_Let_There_Be_Carnage">Venom...</a>
+  				 <a href="https://www.fotogramas.es/noticias-cine/a28331956/spiderman-3-tom-holland-reparto-estreno-marvel/">Spiderman..</a>
+  				 <a href="https://en.wikipedia.org/wiki/The_Suicide_Squad_(film)">Suicide..</a>
+   				 <a href="https://ca.wikipedia.org/wiki/The_Martian">The Martian</a>
+  				 <a href="https://ca.wikipedia.org/wiki/Interstellar">Intestellar</a>
+ 				 </div>
+				</div>
+				</li>
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="prices.html">Prices</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Contact</a>
+					</li>
+					
+		
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+<!--conatcts-->
+
+
+	
+<section class="col-md-6 contact">
+
+ 
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+  
+    <p class=" text1">Do you have any questions? Please do not hesitate to contact us directly.</p>
+
+    <div class="row">
+
+    
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+              
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="name" name="name" class="form-control">
+                            <label for="name" class="">Your name</label>
+                        </div>
+                    </div>
+                
+
+                   
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="email" name="email" class="form-control">
+                            <label for="email" class="">Your email</label>
+                        </div>
+                    </div>
+                 
+
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input type="text" id="subject" name="subject" class="form-control">
+                            <label for="subject" class="">Subject</label>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="row">
+
+                 
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <textarea  id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                            <label for="message">Your message</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+
+            <div class="text-center text-md-left">
+                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+            </div>
+            <div class="status"></div>
+        </div>
+      
+        
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer">
+        <h6>Created by Noor </h6>
+    </div>
+
+
+</footer>
+                
+
+
+</body> </html>
