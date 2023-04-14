@@ -1,0 +1,161 @@
+public class App {
+    public static void main(String[] args) {
+        Car Car = new Car();
+        Car.accelerate();
+
+        Bike motorcycle = new Bike();
+        motorcycle.start();
+
+        Bus bus = new Bus();
+        bus.brake();
+
+        Train train = new Train();
+        train.depart();
+    }
+}
+
+class Car {
+    private String color;
+    private int maxSpeed;
+    private double currentSpeed;
+
+    public void accelerate() {
+        System.out.println("Car accelerating...");
+    }
+
+    public void brake() {
+        System.out.println("Car braking...");
+    }
+
+    public void honk() {
+        System.out.println("Car honking...");
+    }
+}
+
+class Bike {
+    private String model;
+    private boolean isElectric;
+    private double fuelCapacity;
+
+    public void start() {
+        System.out.println("Bike starting...");
+    }
+
+    public void stop() {
+        System.out.println("Bike stopping...");
+    }
+
+    public void wheelie() {
+        System.out.println("Bike doing a wheelie...");
+    }
+}
+
+class Bus {
+    private int numSeats;
+    private double length;
+    private boolean isDoubleDecker;
+
+    public void accelerate() {
+        System.out.println("Bus accelerating...");
+    }
+
+    public void brake() {
+        System.out.println("Bus braking...");
+    }
+
+    public void openDoors() {
+        System.out.println("Bus opening doors...");
+    }
+}
+
+class Train {
+    private String lineName;
+    private boolean isHighSpeed;
+    private int numCars;
+
+    public void depart() {
+        System.out.println("Train departing...");
+    }
+
+    public void stop() {
+        System.out.println("Train stopping...");
+    }
+
+    public void changeLine() {
+        System.out.println("Train changing line...");
+    }
+}
+
+
+------------------------------
+
+class Vehicle {
+    protected String fuelType;
+    protected double fuelCapacity;
+    protected double currentSpeed;
+
+    public void accelerate() {
+        System.out.println("Vehicle accelerating...");
+    }
+
+    public void brake() {
+        System.out.println("Vehicle braking...");
+    }
+
+    public void refuel() {
+        System.out.println("Vehicle refueling...");
+    }
+}
+
+class Car extends Vehicle {
+    private String color;
+    private int maxSpeed;
+
+    public void honk() {
+        System.out.println("Car honking...");
+    }
+}
+
+class Motorcycle extends Vehicle {
+    private String model;
+    private boolean isElectric;
+
+    public void wheelie() {
+        System.out.println("Motorcycle doing a wheelie...");
+    }
+}
+
+class Bus extends Vehicle {
+    private int numSeats;
+    private double length;
+    private boolean isDoubleDecker;
+
+    public void openDoors() {
+        System.out.println("Bus opening doors...");
+    }
+}
+
+class Train extends Vehicle {
+    private String lineName;
+    private boolean isHighSpeed;
+    private int numCars;
+
+    public void changeLine() {
+        System.out.println("Train changing line...");
+    }
+}
+
+public class App {
+    public static void main(String[] args) {
+        Vehicle[] vehicles = new Vehicle[4];
+        vehicles[0] = new Car();
+        vehicles[1] = new Motorcycle();
+        vehicles[2] = new Bus();
+        vehicles[3] = new Train();
+
+        for(Vehicle vehicle : vehicles) {
+            vehicle.accelerate();
+            System.out.println("Vehicle type: " + vehicle.getClass().getSimpleName());
+        }
+    }
+}
