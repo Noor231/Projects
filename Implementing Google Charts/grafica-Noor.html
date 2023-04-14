@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      
+
+      <title>M9-Charts</title>
+      <style>
+         .header{background-color: brown;
+         justify-content: center;
+         text-align: center; 
+         padding: 20px;
+         color: aliceblue;
+         border-radius: 5px;}
+         .footer{background-color: brown;
+         justify-content: center;
+         text-align: center; 
+         padding: 3px;
+         color: aliceblue;
+         border-radius: 5px; 
+         position: relative;
+         }
+         #piechart_3d{ width: auto; height: 250px;}
+         #chart_div{ width: 45%; height: auto; }
+         .back{background-color: rgb(134, 23, 23);
+         padding: 10px;
+         border-radius: 5px;
+         width: 30%; height: 250px;}
+         .fbox{display: flex; justify-content: space-around;flex-wrap: wrap; gap: 15px;}
+         .ifr{background-color: rgb(134, 23, 23);  padding: 10px; display: flex; justify-content: space-around; flex-wrap: wrap;
+         border-radius: 5px;  height: 370px;}
+         .back2{border: 9px solid rgb(134, 23, 23); border-radius: 5px;}
+         canvas{max-width: 50%;}
+
+      </style>
+   </head>
+   <body>
+      <div class="header">
+         <h1>Practica de Graficas <br> Noor singh</h1>
+      </div>
+      <br>
+      <div class="fbox">
+         <img class="back" src="http://chart.apis.google.com/chart?cht=bvg&chs=400x200&chd=t:60,30,15,1&chxr=1,0,40&chds=0,40&chco=0072c6|ef3886|ff9900&chbh=65,0,35&chxt=x,y,x&chl=OnePiece|Naruto|Hunter x Hunter|Bleach&chts=000000,20,20&chg=0,25,5,5&chtt=Mi+consumo+de+Anime" alt="column">
+         <img  class="back" src="https://chart.googleapis.com/chart?cht=lc&chs=400x200&chd=t:60,30,10&chl=OnePiece|Naruto|HunterxHunter|Bleach&chxt=x,y&chls=3,6,3" alt="linechart">
+         <div  class="back" id='piechart_3d'></div>
+         <br>
+         <div class="ifr" id="chart_div" ></div>
+         <br>
+         <iframe width="550px"  seamless frameborder="0" class="ifr" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSE-a6k6rRgn_I4hgWMwSzQhE46RcTE-jV_JiEKQ-hBokhQUhW076aheuy4SD67fJcWhjRFAqFE_ZBS/pubchart?oid=2108408342&amp;format=interactive"></iframe>
+         
+         <canvas class="back2" id="myChart"></canvas>
+         <script src="chart.js"></script>
+         <script>
+         var ctx = document.getElementById('myChart').getContext('2d');
+         var chart = new Chart(ctx, {
+         type: 'doughnut',
+         data:{
+         datasets: [{
+         data: [10,18,10, 8],
+         backgroundColor: ['#42a5f5', 'red', 'green','blue'],
+         label: 'Anime comparison'}],
+         labels: ['Naruto','One Piece','Bleach','Hunter x Hunter']},
+         options: {responsive: true}
+         });
+         </script>
+       
+
+         
+        </div>
+      <br>
+      <footer class="footer">
+         <h2> Practica de Graficas</h2>
+         <p>Ins la Guineueta</p>
+      </footer>
+      <script type="text/javascript">
+         google.charts.load("current", {packages:["corechart"]});
+         google.charts.setOnLoadCallback(drawChart);
+         function drawChart() {
+           var data = google.visualization.arrayToDataTable([
+             ['Task', 'Hours per Day'],
+             ['Work',     11],
+             ['Eat',      2],
+             ['Commute',  2],
+             ['Watch TV', 2],
+             ['Sleep',    7]
+           ]);
+         
+           var options = {
+             title: 'My Daily Activities',
+             is3D: true,
+           };
+         
+           var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+           chart.draw(data, options);
+         }
+      </script>
+      <script type="text/javascript">
+         google.charts.load('current', {packages: ['corechart', 'bar']});
+         google.charts.setOnLoadCallback(drawStacked);
+         
+         function drawStacked() {
+             var data = google.visualization.arrayToDataTable([
+                 ['City', '2010 Population', '2000 Population'],
+                 ['New York City, NY', 8175000, 8008000],
+                 ['Los Angeles, CA', 3792000, 3694000],
+                 ['Chicago, IL', 2695000, 2896000],
+                 ['Houston, TX', 2099000, 1953000],
+                 ['Philadelphia, PA', 1526000, 1517000]
+             ]);
+         
+             var options = {
+                 title: 'Population of Largest U.S. Cities',
+                 // chartArea: {width: 'auto'},
+                 isStacked: true,
+                 hAxis: {
+                 title: 'Total Population',
+                 minValue: 0,
+                 },
+                 vAxis: {
+                 title: 'City'
+                 }
+             };
+             var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+             chart.draw(data, options);
+         }
+         
+      </script>
+
+       
+   </body>
+</html>
