@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.navbar{width: 100%; background-color:#00b2c8;}
+
+.navl{padding-top: 30px;}
+
+header {
+    display: flex;
+    justify-content: space-between;
+  
+    text-align: center;
+  width: 100%;
+  background-color: rgb(118, 199, 226);
+}
+
+.nav_links li {
+    display: inline-block;
+    
+ text-align: center;
+
+}
+
+.nav_links, a {
+     
+    font-family:"Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    color: rgb(97, 117, 228);
+    text-decoration: none; padding: 10px; 
+
+}
+
+.nav2:hover{ border-radius:6px;}
+.nav2:hover{border-bottom:2px solid rgb(111, 111, 224);}
+.nav2:active::selection{border-bottom:2px solid rgb(111, 111, 224); background-color: brown; }
+.btn{border: 1px solid rgb(255, 255, 255); border-radius: 10px; background-color: rgb(247, 190, 34); font-size: 20px; padding: 10px; }
+.btn:hover{background-color: rgb(76, 202, 196); color: rgb(247, 190, 34) ;}
+.btnp{float: right; }
+.logo{width: 150px; float: left;}
+
+
+bdy{font-family: "Courgette" , cursive;}
+
+
+.bit{width: 50%; float: right; padding-top: 100px; }
+
+
+.img1{text-align: center; width: 100%; }
+
+
+.header_text{text-align: center;  font-size: 40px; float: left; padding-left: 100px; padding-top: 200px;} 
+
+.boxc1{text-align: center; width: 90%; margin: auto; display: block;} 
+
+.heres{text-align: center; color: gray;} 
+.blocki{margin: auto; display: block; text-align: center;} 
+
+
+
+
+.blockc1{width: 100%;}
+.block_text{width: 100%; font-size: 25px;   float: left;}
+.h1t{text-align: center; font-size: 70px;}
+.bimg{margin: auto; display: block;}
+
+
+.survay{margin: auto; display: block;}
+
+
+#form1{width: 100%; margin: auto; display: block; text-align: center; font-size: larger;height: 1000px; }
+
+
+
+.disf{width: 40%; border-radius: 10px;  text-align: center; background-color: rgba(223, 223, 217, 0.411); margin: auto; display: block; height: 150px; padding: 50px;}
