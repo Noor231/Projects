@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        #todo-input {
+            flex: 1;
+            padding: 0.5rem;
+        }
+
+        button[type="submit"] {
+            padding: 0.5rem;
+        }
+
+        .geg {
+            width: 50%;
+            margin: auto;
+          
+            border-radius: 5px ;
+            background-color: rgb(103, 119, 119);
+        }
+        body{background-color: rgb(196, 234, 234);}
+    </style>
+</head>
+
+<body>
+
+    <div class="geg">
+        <h1>To-Do List</h1>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Enter a task..."><br>
+            <button type="submit">Add Task</button>
+        </form>
+        <ul id="todo-list"></ul>
+
+    </div>
+
+    <script>
+
+        const todoForm = document.getElementById('todo-form'); // Get the form element
+        const todoInput = document.getElementById('todo-input'); // Get the input element for task
+        const todoList = document.getElementById('todo-list'); // Get the unordered list element for tasks
+
+        todoForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form submission from refreshing the page
+            const task = todoInput.value.trim(); // Get the task from the input element and remove leading/trailing spaces
+
+            if (task === '') {
+                return; // If task is empty, do nothing
+            }
+
+            const taskItem = document.createElement('li'); // Create a new list item element for the task
+            taskItem.textContent = task; // Set the text content of the list item to the task
+
+            const deleteButton = document.createElement('button'); // Create a delete button element for the task
+            deleteButton.textContent = 'Delete'; // Set the text content of the delete button
+            deleteButton.classList.add('delete-button'); // Add a class to the delete button for styling
+            deleteButton.addEventListener('click', () => {
+                taskItem.remove(); // Add event listener to delete button to remove the task when clicked
+            });
+
+            taskItem.appendChild(deleteButton); // Append the delete button to the list item
+            todoList.appendChild(taskItem); // Append the list item to the unordered list
+
+            todoInput.value = ''; // Clear the input field after adding a task
+        });
+    </script>
+</body>
+
+</html>
