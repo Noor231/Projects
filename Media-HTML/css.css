@@ -1,0 +1,205 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(31, 26, 26);
+}
+
+
+header {
+    width: 100%;
+    background-color: rgb(219, 56, 35);
+    color: whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    padding-left: 20px;
+}
+
+
+nav {
+    display: flex;
+    list-style-type: none;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+li {
+    color: aliceblue;
+    border: 1px solid rgb(219, 56, 35);
+    width: 19%;
+    text-align: center;
+    font-size: larger;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(219, 56, 35);
+    color: whitesmoke;
+    border-radius: 5px;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+#mono:hover~.show {
+    background-image: url(img/AK47.GIF);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    visibility: visible;
+    width: 25%;
+    height: 200px;
+
+}
+
+#leo:hover~.show {
+    background-image: url(img/SNIPER.GIF);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    visibility: visible;
+    width: 25%;
+    height: 200px;
+
+}
+
+#elefante:hover~.show {
+    background-image: url(img/M4.GIF);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    visibility: visible;
+    width: 25%;
+    height: 200px;
+
+}
+
+#girafa:hover~.show {
+    background-image: url(img/M249.GIF);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    visibility: visible;
+    width: 25%;
+    height: 200px;
+
+}
+
+#zorro:hover~.show {
+    background: url(img/ump.GIF);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    visibility: visible;
+    width: 25%;
+    height: 200px;
+
+}
+
+.video {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vic {
+    width: 48%;
+    text-align: center;
+    margin: auto;
+    font-size: xx-large;
+    color: aliceblue;
+}
+
+.sato {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+
+video {
+    width: 48%;
+    filter: saturate(50%);
+    border-radius: 10px;
+    border: 2px;
+    border-style: groove;
+
+
+}
+
+.damn {
+    width: 50%;
+    float: right;
+}
+
+
+
+iframe {
+    border-radius: 10px;
+}
+
+.logo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.gif {
+    border-radius: 15px;
+    display: flex;
+    width: 25%;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .video {
+        width: 100%;
+    }
+
+    video {
+        width: 100%;
+    }
+
+
+    .logo {
+        width: 100%;
+    }
+
+    .gif {
+        width: 100%;
+    }
+
+    .damn {
+        width: 100%;
+    }
+
+    .vic {
+        display: none;
+    }
+
+
+}
+
+.show {
+    display: block;
+    position: fixed;
+    margin: auto;
+    overflow: hidden;
+    transition: 1s;
+    pointer-events: none;
+}
+
+li:hover {
+    background-color: rgb(219, 56, 35);
+}
